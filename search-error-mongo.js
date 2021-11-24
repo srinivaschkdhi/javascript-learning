@@ -8,8 +8,11 @@ db.statusTrack.find({
         $in: ["SCRAPE_FAIL", "UPDATE_SKIPPED", "UPDATE_FAIL"]
     },
     startDate: {
-        $gte: ISODate("2021-11-22T00:00:00.407+00:00")
-    }
+        $gte: ISODate("2021-11-22T00:00:00.000+00:00"),
+        $lt: ISODate("2021-11-24T00:00:00.000+00:00")
+    },
+
+
 }).forEach((document) => {
 
     const scrapeStatus = document.jobsScrapeStatus;
